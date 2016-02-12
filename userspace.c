@@ -25,7 +25,9 @@ int main(int argc, char *argv[])
 	size_t num;
 	syscall(SYS_ntasks, &num);
 	struct task_info tasks[num];
-	syscall(SYS_task_info, tasks, num);
+	long syscall_ret = syscall(SYS_task_info, tasks, num);
+	if (syscall_ret > 0)
+		num = syscall_ret;
 	printf("  PID TTY          TIME CMD\n");
 	for(size_t i = 0; i < num; i++) {
 		printf("%5d ", tasks[i].pid);
