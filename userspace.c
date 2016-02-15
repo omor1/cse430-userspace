@@ -36,7 +36,10 @@ int main(int argc, char *argv[])
 		else
 			printf("%-8s ", tasks[i].tty_name);
 		unsigned long long secs = tasks[i].nsecs / 1000000000;
-		printf("%02llu:%02llu:%02llu ", secs/3600, secs/60, secs);
+		printf("%02llu:%02llu:%02llu ",
+				(secs / 3600),
+				((secs / 60) % 3600),
+				(secs % 60));
 		printf("%s\n", tasks[i].comm);
 	}
 	return 0;
