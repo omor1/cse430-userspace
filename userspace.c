@@ -38,7 +38,7 @@ int main(int argc, char *argv[])
 		unsigned long long secs = tasks[i].nsecs / 1000000000;
 		printf("%02llu:%02llu:%02llu ",
 				(secs / 3600),
-				((secs / 60) % 3600),
+				((secs / 60) % 60),
 				(secs % 60));
 		printf("%s\n", tasks[i].comm);
 	}
