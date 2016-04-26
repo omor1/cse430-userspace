@@ -52,10 +52,9 @@ int main(int argc, char *argv[])
 	}
 
 	if (phys & PAGE_SWAP) {
-		printf("Swap identifier:\t");
 		phys &= ~PAGE_SWAP;
+		printf("Swap identifier:\t%llu\n", phys);
 	} else {
-		printf("Physical address:\t");
+		printf("Physical address:\t0x%llx\n", phys);
 	}
-	printf("0x%llx\n", phys);
 }

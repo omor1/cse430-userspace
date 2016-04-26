@@ -2,3 +2,4 @@ jump_table
 printpid
 readmap
 syscall_test
+mkzombie
